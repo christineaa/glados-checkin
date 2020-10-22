@@ -31,3 +31,5 @@ jobs:
         env:
           WECHAT_BOT: ${{ secrets.WECHAT_BOT }}
           COOKIE: ${{ secrets.COOKIE }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
