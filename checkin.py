@@ -7,8 +7,8 @@ import os
 # wechat_bot = environ.wechat_bot
 cookie = os.environ["COOKIE"]  # 填入glados账号对应cookie
 wechat_bot = os.environ["WECHAT_BOT"]  # 企业微信机器人 url
-token = os.environ["TG_TOKEN"]
 chat_id = os.environ["TG_CHAT_ID"]
+token = os.environ["TG_TOKEN"]
 
 
 def wechat_bot_message(left_times, message):
