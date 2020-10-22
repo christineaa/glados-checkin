@@ -1,10 +1,14 @@
 import requests
 import json
 import os
+import telegram
+
 
 # import environ
 # cookie = environ.cookie
 # wechat_bot = environ.wechat_bot
+# chat_id = environ.chat_id
+# token = environ.token
 cookie = os.environ["COOKIE"]  # 填入glados账号对应cookie
 wechat_bot = os.environ["WECHAT_BOT"]  # 企业微信机器人 url
 chat_id = os.environ["TG_CHAT_ID"]
@@ -27,10 +31,8 @@ def wechat_bot_message(left_times, message):
 
 
 def telegram_bot_message(left_times, message):
-    import telegram
     bot = telegram.Bot(token=token)
-    text = f'当前剩余次数：<b>{left_times}</b>次\n' +\
-           f'{message}',
+    text = f'<b>Glados</b>\n当前剩余次数：<b>{left_times}</b>次\n{message}'
     bot.send_message(chat_id=chat_id, text=text,
                      parse_mode=telegram.ParseMode.HTML)
 
@@ -62,4 +64,5 @@ def start():
 
 if __name__ == '__main__':
     # wechat_bot_message('0', 'Please Try Tomorrow')
+    # telegram_bot_message('0', 'Please Try Tomorrow')
     start()
