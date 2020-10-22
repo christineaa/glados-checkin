@@ -7,6 +7,8 @@ import os
 # wechat_bot = environ.wechat_bot
 cookie = os.environ["COOKIE"]  # 填入glados账号对应cookie
 wechat_bot = os.environ["WECHAT_BOT"]  # 企业微信机器人 url
+token = os.environ["TG_TOKEN"]
+chat_id = os.environ["TG_CHAT_ID"]
 
 
 def wechat_bot_message(left_times, message):
@@ -16,10 +18,21 @@ def wechat_bot_message(left_times, message):
         "markdown": {
             "content": f'# Gloados\n' +
                        f'当前剩余次数：<font color="warning">{left_times}</font>次\n' +
-                       f'><font color="comment">{message}</font>'
+                       f'><font color="comment">{message}</font>',
+            "mentioned_list": ["@all"],
+            "mentioned_mobile_list": ["@all"],
         }
     }
     r = requests.post(wechat_bot, headers=headers, json=data)
+
+
+def telegram_bot_message(left_times, message):
+    import telegram
+    bot = telegram.Bot(token=token)
+    text = f'当前剩余次数：<b>{left_times}</b>次\n' +\
+           f'{message}',
+    bot.send_message(chat_id=chat_id, text=text,
+                     parse_mode=telegram.ParseMode.HTML)
 
 
 def start():
@@ -44,6 +57,7 @@ def start():
         # print(time)
         # print(mess)
         wechat_bot_message(time, mess)
+        telegram_bot_message(time, mess)
 
 
 if __name__ == '__main__':
