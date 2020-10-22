@@ -16,7 +16,7 @@ def wechat_bot_message(left_times, message):
         "markdown": {
             "content": f'# Gloados\n' +
                        f'当前剩余次数：<font color="warning">{left_times}</font>次\n' +
-                       f'>{message}'
+                       f'><font color="comment">{message}</font>'
         }
     }
     r = requests.post(wechat_bot, headers=headers, json=data)
