@@ -58,7 +58,7 @@ def start():
         time = state.json()['data']['leftDays'].split('.')[0]
         # print(time)
         # print(mess)
-        wechat_bot_message(time, mess)
+        # wechat_bot_message(time, mess)
         telegram_bot_message(time, mess)
 
 
