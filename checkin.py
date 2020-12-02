@@ -59,7 +59,7 @@ def start():
         # print(time)
         # print(mess)
         # wechat_bot_message(time, mess)
-        # telegram_bot_message(time, mess)
+        telegram_bot_message(time, mess)
 
 
 if __name__ == '__main__':
