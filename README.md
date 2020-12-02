@@ -23,7 +23,7 @@
 
 添加名为——值分别为：  
 **COOKIE** —— **cookie** 弄上你账号的cookie  
-**WECHAT_BOT** —— **url** 企业微信机器人 url  
+**WECHAT_BOT** —— **url** 企业微信机器人 url  #可以不管
 ![](http://tu.yaohuo.me/imgs/2020/06/748bf9c0ca6143cd.png)
 
 ## 三、启用Action
